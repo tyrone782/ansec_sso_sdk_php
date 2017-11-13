@@ -1,0 +1,22 @@
+{
+    "name": "ansec/sso_sdk",
+    "description": "This is a sso sdk for php from Ansec.inc",
+    "type": "library",
+    "require": {
+        "php": ">=5.5",
+        "guzzlehttp/guzzle": "^6.2.1"
+    },
+    "license": "Apache",
+    "authors": [
+        {
+            "name": "tanlinjiang",
+            "email": "tanlinjiang@foxmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+    	"psr-4": {
+			"ansec\\sdk\\sso\\": "src/ansec/sdk/sso"
+    	}
+    }
+}
