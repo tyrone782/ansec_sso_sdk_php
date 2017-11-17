@@ -57,9 +57,25 @@ class SystemAuthority {
      * @return Ambigous <>|NULL
      */
     public function getSystemInfo() {
-        $response = $this->handlerRequest('api/checksystoken', []);var_dump($response);
+        $response = $this->handlerRequest('api/checksystoken', []);
         if (isset($response['data']['appinfo'])) {
             return $response['data']['appinfo'];
+        }
+        return null;
+    }
+
+    /**
+     * 获取指定token的系统信息
+     *
+     * @param unknown $token
+     * @return NULL|array
+     */
+    public function getSystemInfoFromToken($token) {
+        $response = $this->_http->sendGetRequest('api/checksystoken', [], [
+                'systemtoken' => $token
+                ]);
+        if (isset($response['returncode']) && $response['returncode'] == 200) {
+            return @$response['data']['appinfo'];
         }
         return null;
     }
